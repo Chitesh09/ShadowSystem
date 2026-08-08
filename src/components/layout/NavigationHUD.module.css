@@ -1,0 +1,69 @@
+.navDock {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(13, 24, 38, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px var(--primary-neon-dim);
+  border-radius: 30px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 500;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-family: var(--font-orbitron);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.navItemActive {
+  color: var(--primary-neon);
+}
+
+.activeGlow {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 200, 255, 0.14);
+  border: 1px solid var(--primary-neon);
+  border-radius: 20px;
+  z-index: 0;
+}
+
+@media (min-width: 900px) {
+  .navDock {
+    bottom: auto;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 12px 8px;
+  }
+
+  .navItem {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .activeGlow {
+    border-radius: 8px;
+  }
+}

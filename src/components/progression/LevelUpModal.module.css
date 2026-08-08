@@ -1,0 +1,128 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 8, 14, 0.92);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 24px;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Screen Flash Effect */
+.screenFlash {
+  position: absolute;
+  inset: 0;
+  background: #FFFFFF;
+  pointer-events: none;
+  animation: flashAnim 0.6s ease-out forwards;
+  z-index: 2;
+}
+
+@keyframes flashAnim {
+  0% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+/* Level Up Cinematic Modal Card */
+.modalCard {
+  width: 100%;
+  max-width: 500px;
+  background: linear-gradient(135deg, rgba(13, 24, 38, 0.96) 0%, rgba(5, 8, 14, 0.98) 100%);
+  border: 2px solid var(--primary-neon);
+  box-shadow: 
+    0 0 50px var(--primary-neon),
+    0 0 100px var(--accent-purple-glow),
+    inset 0 0 30px var(--primary-neon-dim);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* Radial Neon Bloom Aura */
+.bloomAura {
+  position: absolute;
+  top: -50px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-neon-glow) 0%, var(--accent-purple-glow) 60%, transparent 80%);
+  animation: bloomPulse 2s infinite ease-in-out alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes bloomPulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.3); opacity: 1; }
+}
+
+.levelBadge {
+  position: relative;
+  z-index: 3;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 3px solid var(--accent-gold);
+  box-shadow: 0 0 35px var(--accent-gold-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-orbitron);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--accent-gold);
+  text-shadow: 0 0 15px var(--accent-gold-glow);
+}
+
+.ascendTitle {
+  font-family: var(--font-orbitron);
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: var(--primary-neon);
+  text-shadow: 0 0 20px var(--primary-neon-glow);
+  text-transform: uppercase;
+}
+
+.subTitle {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+/* Rank & Title Unlocks Container */
+.unlocksBox {
+  width: 100%;
+  background: rgba(5, 8, 14, 0.7);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.unlockItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-main);
+}

@@ -1,0 +1,108 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  user-select: none;
+}
+
+/* System HUD Alert Banner */
+.alertBanner {
+  background: rgba(13, 24, 38, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--primary-neon);
+  box-shadow: 0 0 25px var(--primary-neon-dim);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.alertBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-neon);
+  box-shadow: 0 0 10px var(--primary-neon);
+}
+
+.bannerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.bannerCode {
+  font-family: var(--font-orbitron);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--primary-neon);
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.directiveList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-main);
+  background: rgba(5, 8, 14, 0.6);
+  border-radius: 6px;
+  padding: 14px 16px;
+  border-left: 2px solid var(--primary-neon);
+}
+
+/* AI Reports Grid */
+.reportsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.reportCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.metricRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* AI Generated Mission Item */
+.missionBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  gap: 14px;
+}

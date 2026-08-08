@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  user-select: none;
+}
+
+/* Stat Overview Row */
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.overviewCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease;
+}
+
+.overviewCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 200, 255, 0.4);
+  box-shadow: 0 0 20px var(--primary-neon-dim);
+}
+
+.metricValue {
+  font-family: var(--font-orbitron);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--primary-neon);
+  text-shadow: 0 0 12px var(--primary-neon-glow);
+}
+
+/* Charts Grid */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.chartCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Habit Heatmap Grid */
+.heatmapGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.heatmapTile {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.heatmapTile:hover {
+  transform: scale(1.15);
+  z-index: 10;
+  border-color: var(--primary-neon);
+}
+
+.level0 { background: var(--bg-secondary); opacity: 0.5; }
+.level1 { background: rgba(0, 200, 255, 0.2); border-color: rgba(0, 200, 255, 0.3); }
+.level2 { background: rgba(0, 200, 255, 0.4); border-color: rgba(0, 200, 255, 0.6); box-shadow: 0 0 8px var(--primary-neon-dim); }
+.level3 { background: var(--primary-neon); border-color: #FFFFFF; box-shadow: 0 0 14px var(--primary-neon-glow); }
+
+/* Level Timeline */
+.timelineFeed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.timelineFeed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 6px;
+  width: 2px;
+  background: var(--border-color);
+}
+
+.timelineNode {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nodeDot {
+  position: absolute;
+  left: -20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-neon);
+  box-shadow: 0 0 10px var(--primary-neon-glow);
+}

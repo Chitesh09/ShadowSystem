@@ -1,0 +1,259 @@
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  user-select: none;
+}
+
+/* Section Header */
+.sectionTitle {
+  font-family: var(--font-orbitron);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+/* Floating Card Base */
+.floatCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floatCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 200, 255, 0.4);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.6),
+    0 0 20px var(--primary-neon-dim);
+}
+
+/* Player Card Specific Styling */
+.playerCard {
+  background: linear-gradient(135deg, rgba(13, 24, 38, 0.95) 0%, rgba(5, 8, 14, 0.98) 100%);
+  border: 1px solid rgba(0, 200, 255, 0.35);
+  box-shadow: 0 0 30px var(--primary-neon-dim);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+/* Avatar Aura Box */
+.avatarBox {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, var(--bg-secondary) 40%, rgba(123, 39, 255, 0.3) 100%);
+  border: 2px solid var(--primary-neon);
+  box-shadow: 
+    0 0 25px var(--primary-neon-glow),
+    inset 0 0 20px var(--accent-purple-glow);
+}
+
+/* Pulsing Shadow Aura Effect */
+.auraPulse {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(123, 39, 255, 0.4) 0%, rgba(0, 200, 255, 0.2) 60%, transparent 80%);
+  animation: auraPulseAnim 2.5s infinite ease-in-out alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes auraPulseAnim {
+  0% { transform: scale(0.95); opacity: 0.5; filter: blur(6px); }
+  100% { transform: scale(1.15); opacity: 0.9; filter: blur(12px); }
+}
+
+/* Silhouette Avatar with Glowing Eyes */
+.avatarGraphic {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eyesGlow {
+  position: absolute;
+  top: 26px;
+  display: flex;
+  gap: 16px;
+  z-index: 3;
+}
+
+.eyeDot {
+  width: 7px;
+  height: 3px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #FFFFFF, 0 0 16px var(--primary-neon);
+}
+
+.playerDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+}
+
+.playerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.designationTitle {
+  font-family: var(--font-orbitron);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--text-main);
+}
+
+/* Metallic Rank Badge */
+.rankBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(205, 127, 50, 0.3) 100%);
+  border: 1px solid var(--accent-gold);
+  border-radius: 4px;
+  color: var(--accent-gold);
+  font-family: var(--font-orbitron);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  box-shadow: 0 0 12px var(--accent-gold-dim);
+}
+
+/* Quick Actions Grid */
+.actionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+/* Metrics Row Grid */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* Missions Checklist */
+.missionList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.missionItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.missionItem:hover {
+  border-color: var(--primary-neon);
+  box-shadow: 0 0 12px var(--primary-neon-dim);
+}
+
+.missionLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.missionCheckbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.missionChecked {
+  background: rgba(0, 200, 255, 0.2);
+  border-color: var(--primary-neon);
+  box-shadow: 0 0 10px var(--primary-neon-glow);
+}
+
+.missionTitle {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.missionTitleDone {
+  text-decoration: line-through;
+  color: var(--text-dim);
+}
+
+/* Timeline Feed */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timelineItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(5, 8, 14, 0.6);
+  border-left: 3px solid var(--primary-neon);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.timelineTime {
+  color: var(--text-dim);
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+  .playerCard {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+}
