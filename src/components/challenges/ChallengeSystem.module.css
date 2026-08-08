@@ -1,11 +1,17 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 20px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   user-select: none;
+}
+
+@media (min-width: 768px) {
+  .container {
+    gap: 28px;
+  }
 }
 
 /* Boss Event Hero Banner */
@@ -14,14 +20,23 @@
   border: 1px solid var(--accent-purple);
   box-shadow: 0 0 30px var(--accent-purple-glow);
   border-radius: var(--radius-lg);
-  padding: 28px;
+  padding: 20px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .bossBanner {
+    padding: 28px;
+    gap: 20px;
+  }
 }
 
 .bossBanner::before {
@@ -39,27 +54,43 @@
 /* Challenge Cards Grid */
 .challengeGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 18px;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .challengeGrid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+  }
 }
 
 .challengeCard {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 16px;
+  gap: 14px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   transition: all 0.25s ease;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .challengeCard {
+    padding: 20px;
+    gap: 16px;
+  }
 }
 
 .challengeCard:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: rgba(0, 200, 255, 0.4);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--primary-neon-dim);
 }
@@ -91,7 +122,7 @@
   align-items: center;
   justify-content: center;
   z-index: 10000;
-  padding: 24px;
+  padding: 16px;
 }
 
 .bossModal {
@@ -103,15 +134,23 @@
     0 0 50px var(--accent-gold-glow),
     0 0 100px var(--accent-purple-glow);
   border-radius: var(--radius-lg);
-  padding: 36px 28px;
+  padding: 24px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 20px;
+  gap: 16px;
   position: relative;
   overflow: hidden;
   animation: bossShake 0.5s ease-in-out;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .bossModal {
+    padding: 36px 28px;
+    gap: 20px;
+  }
 }
 
 @keyframes bossShake {

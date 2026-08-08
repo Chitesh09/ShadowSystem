@@ -1,11 +1,18 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  align-items: center;
+  gap: 20px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   user-select: none;
+}
+
+@media (min-width: 768px) {
+  .container {
+    gap: 28px;
+  }
 }
 
 /* Fullscreen Immersive Container */
@@ -20,8 +27,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 32px;
+  padding: 16px;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .fullscreenViewport {
+    padding: 32px;
+  }
 }
 
 /* Ambient Canvas Particle Overlays */
@@ -100,26 +113,41 @@
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 36px 24px;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
   position: relative;
   z-index: 10;
   width: 100%;
   max-width: 520px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .focusCard {
+    padding: 36px 24px;
+    gap: 28px;
+  }
 }
 
 /* Circular Timer Center Stage */
 .timerStage {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: 220px;
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .timerStage {
+    width: 280px;
+    height: 280px;
+  }
 }
 
 .timerSvg {
@@ -146,22 +174,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   text-align: center;
 }
 
 .digits {
   font-family: var(--font-orbitron);
-  font-size: 44px;
+  font-size: 32px;
   font-weight: 900;
   letter-spacing: 0.08em;
   color: var(--text-main);
   text-shadow: 0 0 20px var(--primary-neon-glow);
 }
 
+@media (min-width: 640px) {
+  .digits {
+    font-size: 44px;
+  }
+}
+
 .statusText {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.15em;
   color: var(--primary-neon);
   text-transform: uppercase;
@@ -171,9 +205,10 @@
 .controlsRow {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 }
 
 /* Ambient Selector Pills */
@@ -188,16 +223,17 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 14px;
+  padding: 6px 12px;
   border-radius: 20px;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   color: var(--text-dim);
   font-family: var(--font-orbitron);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  min-height: 38px;
 }
 
 .ambientPillActive {
@@ -210,6 +246,14 @@
 /* Statistics Grid */
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .statsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
 }

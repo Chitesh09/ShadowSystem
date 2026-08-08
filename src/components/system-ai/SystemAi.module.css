@@ -1,11 +1,17 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 20px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   user-select: none;
+}
+
+@media (min-width: 768px) {
+  .container {
+    gap: 28px;
+  }
 }
 
 /* System HUD Alert Banner */
@@ -15,12 +21,20 @@
   border: 1px solid var(--primary-neon);
   box-shadow: 0 0 25px var(--primary-neon-dim);
   border-radius: var(--radius-md);
-  padding: 20px 24px;
+  padding: 16px;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .alertBanner {
+    padding: 20px 24px;
+  }
 }
 
 .alertBanner::before {
@@ -44,7 +58,7 @@
 
 .bannerCode {
   font-family: var(--font-orbitron);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   color: var(--primary-neon);
   letter-spacing: 0.1em;
@@ -58,41 +72,59 @@
   flex-direction: column;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-main);
   background: rgba(5, 8, 14, 0.6);
   border-radius: 6px;
-  padding: 14px 16px;
+  padding: 12px 14px;
   border-left: 2px solid var(--primary-neon);
+  word-break: break-word;
 }
 
 /* AI Reports Grid */
 .reportsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .reportsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
 }
 
 .reportCard {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .reportCard {
+    padding: 20px;
+  }
 }
 
 .metricRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 14px;
+  padding: 10px 12px;
   background: var(--bg-secondary);
   border-radius: 6px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 /* AI Generated Mission Item */
@@ -100,9 +132,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 16px;
+  padding: 12px 14px;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  gap: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
 }

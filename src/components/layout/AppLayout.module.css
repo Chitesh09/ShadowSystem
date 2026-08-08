@@ -4,6 +4,9 @@
   flex-direction: column;
   position: relative;
   background: var(--bg-primary);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .mainContent {
@@ -11,13 +14,12 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
-  padding-bottom: 100px;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   .mainContent {
-    padding-left: 140px;
-    padding-bottom: 40px;
+    padding: 24px;
   }
 }

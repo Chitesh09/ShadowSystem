@@ -9,6 +9,7 @@ import Button from '../components/ui/Button/Button';
 import Badge from '../components/ui/Badge/Badge';
 import HudSkeleton from '../components/ui/HudSkeleton/HudSkeleton';
 import ErrorBoundary from '../components/ui/ErrorBoundary/ErrorBoundary';
+import MobileNav from '../components/layout/MobileNav';
 import { soundEngine } from '../lib/soundEngine';
 
 // Dynamic Code-Split Imports
@@ -129,11 +130,21 @@ export default function Home() {
 
       {/* 4. MAIN OPERATING SYSTEM APP (Mounted ONLY AFTER Auth & Onboarding) */}
       {appStage === 'APP' && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', maxWidth: '100%' }}>
           
-          {/* Top HUD Navigation Bar */}
+          {/* Mobile Top Header & Drawer Navigation (< 768px) */}
+          <MobileNav
+            activeView={activeView}
+            onSelectView={handleNavClick}
+            playerProfile={playerProfile}
+            onReplayIntro={() => setAppStage('SPLASH')}
+            onLogout={handleLogout}
+          />
+
+          {/* Desktop Navigation Bar (>= 768px) */}
           <nav
-            aria-label="System Main Navigation"
+            aria-label="Desktop System Navigation"
+            className="desktopNav"
             style={{
               display: 'flex',
               justify: 'space-between',
@@ -263,6 +274,14 @@ export default function Home() {
               </Button>
             </div>
           </nav>
+
+          <style jsx>{`
+            @media (max-width: 767px) {
+              .desktopNav {
+                display: none !important;
+              }
+            }
+          `}</style>
 
           {/* Holographic Viewport Router */}
           <AnimatePresence mode="wait">

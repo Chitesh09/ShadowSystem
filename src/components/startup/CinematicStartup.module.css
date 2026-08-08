@@ -11,6 +11,8 @@
   justify-content: center;
   overflow: hidden;
   user-select: none;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
 /* Background Cyber Grid */
@@ -72,13 +74,20 @@
 /* Portal Energy Explosion Ring */
 .portalRing {
   position: absolute;
-  width: 320px;
-  height: 320px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0, 200, 255, 0.4) 0%, rgba(123, 39, 255, 0.3) 50%, transparent 70%);
   box-shadow: 0 0 60px var(--primary-neon-glow), 0 0 120px var(--accent-purple-glow);
   animation: portalPulse 0.8s ease-out infinite alternate;
   pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .portalRing {
+    width: 320px;
+    height: 320px;
+  }
 }
 
 @keyframes portalPulse {
@@ -95,24 +104,38 @@
   align-items: center;
   gap: 12px;
   text-align: center;
+  padding: 0 16px;
 }
 
 .msgText {
   font-family: var(--font-orbitron);
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 800;
   color: var(--primary-neon);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-shadow: 0 0 14px var(--primary-neon-glow);
   text-transform: uppercase;
 }
 
+@media (min-width: 640px) {
+  .msgText {
+    font-size: 16px;
+    letter-spacing: 0.2em;
+  }
+}
+
 .syncPercent {
   font-family: var(--font-orbitron);
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 900;
   color: #FFFFFF;
   text-shadow: 0 0 20px var(--primary-neon-glow);
+}
+
+@media (min-width: 640px) {
+  .syncPercent {
+    font-size: 36px;
+  }
 }
 
 /* Logo & Welcome Scene */
@@ -122,41 +145,64 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+  text-align: center;
+  padding: 0 16px;
 }
 
 .logoTitle {
   font-family: var(--font-orbitron);
-  font-size: 42px;
+  font-size: 26px;
   font-weight: 900;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.18em;
   color: var(--text-main);
   text-shadow: 0 0 25px var(--primary-neon-glow), 0 0 50px var(--accent-purple-glow);
 }
 
+@media (min-width: 640px) {
+  .logoTitle {
+    font-size: 42px;
+    letter-spacing: 0.25em;
+  }
+}
+
 .welcomeText {
   font-family: var(--font-orbitron);
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 900;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
   color: var(--accent-gold);
   text-shadow: 0 0 20px var(--accent-gold-glow);
 }
 
+@media (min-width: 640px) {
+  .welcomeText {
+    font-size: 28px;
+    letter-spacing: 0.3em;
+  }
+}
+
 .ariseText {
   font-family: var(--font-orbitron);
-  font-size: 34px;
+  font-size: 24px;
   font-weight: 900;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.25em;
   color: var(--primary-neon);
   text-shadow: 0 0 30px var(--primary-neon-glow);
+}
+
+@media (min-width: 640px) {
+  .ariseText {
+    font-size: 34px;
+    letter-spacing: 0.4em;
+  }
 }
 
 /* Controls */
 .controlsDock {
   position: absolute;
-  bottom: 30px;
+  bottom: 24px;
   display: flex;
-  gap: 12px;
+  gap: 10px;
   z-index: 30;
 }

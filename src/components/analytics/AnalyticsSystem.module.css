@@ -1,30 +1,49 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 20px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   user-select: none;
 }
 
+@media (min-width: 768px) {
+  .container {
+    gap: 28px;
+  }
+}
+
 /* Stat Overview Row */
 .overviewGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .overviewGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
 }
 
 .overviewCard {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   transition: all 0.25s ease;
+}
+
+@media (min-width: 768px) {
+  .overviewCard {
+    padding: 20px;
+  }
 }
 
 .overviewCard:hover {
@@ -35,35 +54,64 @@
 
 .metricValue {
   font-family: var(--font-orbitron);
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 800;
   color: var(--primary-neon);
   text-shadow: 0 0 12px var(--primary-neon-glow);
+  word-break: break-word;
+}
+
+@media (min-width: 640px) {
+  .metricValue {
+    font-size: 26px;
+  }
 }
 
 /* Charts Grid */
 .chartsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .chartsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
 }
 
 .chartCard {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .chartCard {
+    padding: 24px;
+    gap: 16px;
+  }
 }
 
 /* Habit Heatmap Grid */
 .heatmapGrid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+  gap: 6px;
+}
+
+@media (min-width: 640px) {
+  .heatmapGrid {
+    gap: 8px;
+  }
 }
 
 .heatmapTile {

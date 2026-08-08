@@ -1,8 +1,15 @@
 .onboardingContainer {
   width: 100%;
   max-width: 680px;
-  margin: 40px auto;
+  margin: 16px auto;
   user-select: none;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .onboardingContainer {
+    margin: 40px auto;
+  }
 }
 
 .card {
@@ -12,12 +19,21 @@
   border: 1px solid var(--primary-neon);
   box-shadow: 0 0 35px var(--primary-neon-dim);
   border-radius: var(--radius-lg);
-  padding: 40px;
+  padding: 24px 18px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 20px;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 40px;
+    gap: 28px;
+  }
 }
 
 .stepHeader {
@@ -29,33 +45,47 @@
 
 .stepBadge {
   font-family: var(--font-orbitron);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--primary-neon);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
 }
 
 .stepTitle {
   font-family: var(--font-orbitron);
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 900;
   color: var(--text-main);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
+}
+
+@media (min-width: 640px) {
+  .stepTitle {
+    font-size: 24px;
+    letter-spacing: 0.12em;
+  }
 }
 
 .classGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .classGrid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
 }
 
 .classCard {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
   transition: all 0.25s ease;
 }
@@ -67,6 +97,6 @@
 }
 
 .classCard:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--primary-neon);
 }
