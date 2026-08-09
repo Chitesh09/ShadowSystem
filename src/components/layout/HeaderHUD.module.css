@@ -1,15 +1,23 @@
 .header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 800;
   width: 100%;
-  padding: 12px 24px;
-  background: rgba(8, 12, 20, 0.85);
-  backdrop-filter: blur(12px);
+  padding: 12px 16px;
+  background: rgba(13, 24, 38, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 14px 24px;
+  }
 }
 
 .left {
@@ -18,19 +26,64 @@
   gap: 12px;
 }
 
+.hamburgerBtn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--primary-neon);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.hamburgerBtn:hover {
+  border-color: var(--primary-neon);
+  box-shadow: 0 0 12px var(--primary-neon-dim);
+  background: rgba(0, 200, 255, 0.12);
+  transform: scale(1.05);
+}
+
+.hamburgerBtn:active {
+  transform: scale(0.95);
+}
+
 .logoText {
   font-family: var(--font-orbitron);
-  font-size: 16px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 900;
   letter-spacing: 0.12em;
   color: var(--primary-neon);
   text-shadow: 0 0 10px var(--primary-neon-glow);
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .logoText {
+    font-size: 16px;
+  }
+}
+
+.badgeGroup {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .badgeGroup {
+    display: flex;
+  }
 }
 
 .right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .statusIndicator {
@@ -44,6 +97,7 @@
   padding: 4px 10px;
   border-radius: 4px;
   border: 1px solid rgba(0, 230, 118, 0.3);
+  white-space: nowrap;
 }
 
 .statusDot {
@@ -52,4 +106,116 @@
   border-radius: 50%;
   background: var(--status-success);
   box-shadow: 0 0 6px var(--status-success);
+}
+
+/* Semi-Transparent Glass Backdrop */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 14, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+/* Holographic Navigation Drawer */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 88vw;
+  background: rgba(13, 24, 38, 0.98);
+  border-right: 1px solid var(--primary-neon);
+  box-shadow: 0 0 50px var(--primary-neon-dim);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 18px;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.drawerTitle {
+  font-family: var(--font-orbitron);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: var(--primary-neon);
+}
+
+.drawerSectionLabel {
+  font-family: var(--font-orbitron);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-family: var(--font-orbitron);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 46px; /* Touch target >= 44px */
+}
+
+.navItem:hover {
+  border-color: var(--primary-neon);
+  background: rgba(0, 200, 255, 0.1);
+  color: var(--primary-neon);
+  transform: translateX(4px);
+}
+
+.navItemActive {
+  background: rgba(0, 200, 255, 0.18) !important;
+  border-color: var(--primary-neon) !important;
+  color: var(--primary-neon) !important;
+  box-shadow: 0 0 14px var(--primary-neon-dim);
+}
+
+.navItemGold {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.navItemGold:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.12);
+}
+
+.navItemPurple {
+  border-color: rgba(123, 39, 255, 0.3);
+}
+
+.navItemPurple:hover {
+  border-color: var(--accent-purple);
+  color: #D8B4FE;
+  background: rgba(123, 39, 255, 0.12);
 }

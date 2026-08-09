@@ -3,13 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, KeyRound, LayoutDashboard, CheckSquare, Zap, Target, Dumbbell, User, BarChart3, Cpu, Trophy, LogOut } from 'lucide-react';
 import { useSystem } from '../context/SystemContext';
-import Button from '../components/ui/Button/Button';
-import Badge from '../components/ui/Badge/Badge';
+import AppLayout from '../components/layout/AppLayout';
 import HudSkeleton from '../components/ui/HudSkeleton/HudSkeleton';
 import ErrorBoundary from '../components/ui/ErrorBoundary/ErrorBoundary';
-import MobileNav from '../components/layout/MobileNav';
 import { soundEngine } from '../lib/soundEngine';
 
 // Dynamic Code-Split Imports
@@ -130,159 +127,12 @@ export default function Home() {
 
       {/* 4. MAIN OPERATING SYSTEM APP (Mounted ONLY AFTER Auth & Onboarding) */}
       {appStage === 'APP' && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', maxWidth: '100%' }}>
-          
-          {/* Mobile Top Header & Drawer Navigation (< 768px) */}
-          <MobileNav
-            activeView={activeView}
-            onSelectView={handleNavClick}
-            playerProfile={playerProfile}
-            onReplayIntro={() => setAppStage('SPLASH')}
-            onLogout={handleLogout}
-          />
-
-          {/* Desktop Navigation Bar (>= 768px) */}
-          <nav
-            aria-label="Desktop System Navigation"
-            className="desktopNav"
-            style={{
-              display: 'flex',
-              justify: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '12px',
-              padding: '12px 18px',
-              background: 'rgba(13, 24, 38, 0.75)',
-              backdropFilter: 'blur(12px)',
-              border: '1px solid var(--border-color)',
-              borderRadius: 'var(--radius-md)'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{
-                fontFamily: 'var(--font-orbitron)',
-                fontSize: '13px',
-                fontWeight: 800,
-                letterSpacing: '0.1em',
-                color: 'var(--primary-neon)',
-                textShadow: '0 0 10px var(--primary-neon-glow)'
-              }}>
-                SHADOW SYSTEM OS
-              </span>
-              <Badge variant="cyan">{playerProfile.designation || 'OPERATIVE'}</Badge>
-              <Badge variant="gold">LVL {playerProfile.level || 1}</Badge>
-            </div>
-
-            <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
-              <Button
-                variant={activeView === 'dashboard' ? 'primary' : 'outline'}
-                size="sm"
-                icon={LayoutDashboard}
-                onClick={() => handleNavClick('dashboard')}
-              >
-                HEADQUARTERS
-              </Button>
-
-              <Button
-                variant={activeView === 'quests' ? 'primary' : 'outline'}
-                size="sm"
-                icon={CheckSquare}
-                onClick={() => handleNavClick('quests')}
-              >
-                QUEST MATRIX
-              </Button>
-
-              <Button
-                variant={activeView === 'challenges' ? 'gold' : 'outline'}
-                size="sm"
-                icon={Trophy}
-                onClick={() => handleNavClick('challenges')}
-              >
-                CHALLENGES
-              </Button>
-
-              <Button
-                variant={activeView === 'training' ? 'primary' : 'outline'}
-                size="sm"
-                icon={Dumbbell}
-                onClick={() => handleNavClick('training')}
-              >
-                TRAINING
-              </Button>
-
-              <Button
-                variant={activeView === 'focus' ? 'purple' : 'outline'}
-                size="sm"
-                icon={Target}
-                onClick={() => handleNavClick('focus')}
-              >
-                FOCUS MODE
-              </Button>
-
-              <Button
-                variant={activeView === 'progression' ? 'gold' : 'outline'}
-                size="sm"
-                icon={Zap}
-                onClick={() => handleNavClick('progression')}
-              >
-                PROGRESSION
-              </Button>
-
-              <Button
-                variant={activeView === 'profile' ? 'gold' : 'outline'}
-                size="sm"
-                icon={User}
-                onClick={() => handleNavClick('profile')}
-              >
-                PROFILE
-              </Button>
-
-              <Button
-                variant={activeView === 'analytics' ? 'primary' : 'outline'}
-                size="sm"
-                icon={BarChart3}
-                onClick={() => handleNavClick('analytics')}
-              >
-                ANALYTICS
-              </Button>
-
-              <Button
-                variant={activeView === 'system_ai' ? 'primary' : 'outline'}
-                size="sm"
-                icon={Cpu}
-                onClick={() => handleNavClick('system_ai')}
-              >
-                THE SYSTEM
-              </Button>
-
-              <Button
-                variant="outline"
-                size="sm"
-                icon={Play}
-                onClick={() => setAppStage('SPLASH')}
-              >
-                REPLAY INTRO
-              </Button>
-
-              <Button
-                variant="outline"
-                size="sm"
-                icon={LogOut}
-                onClick={handleLogout}
-              >
-                LOGOUT
-              </Button>
-            </div>
-          </nav>
-
-          <style jsx>{`
-            @media (max-width: 767px) {
-              .desktopNav {
-                display: none !important;
-              }
-            }
-          `}</style>
-
+        <AppLayout
+          activeView={activeView}
+          onSelectView={handleNavClick}
+          onReplayIntro={() => setAppStage('SPLASH')}
+          onLogout={handleLogout}
+        >
           {/* Holographic Viewport Router */}
           <AnimatePresence mode="wait">
             {activeView === 'dashboard' && (
@@ -393,8 +243,7 @@ export default function Home() {
               </motion.div>
             )}
           </AnimatePresence>
-
-        </div>
+        </AppLayout>
       )}
     </ErrorBoundary>
   );
