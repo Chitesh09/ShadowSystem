@@ -1,7 +1,6 @@
 import "./globals.css";
 import { ThemeProvider } from "../context/ThemeContext";
 import { SystemProvider } from "../context/SystemContext";
-import AppLayout from "../components/layout/AppLayout";
 
 export const metadata = {
   title: "Shadow System - Life RPG Operating System",
@@ -21,9 +20,7 @@ export default function RootLayout({ children }) {
       <body>
         <ThemeProvider>
           <SystemProvider>
-            <AppLayout>
-              {children}
-            </AppLayout>
+            {children}
           </SystemProvider>
         </ThemeProvider>
       </body>
